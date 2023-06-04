@@ -5,11 +5,11 @@
 #include <algorithm>
 
 class Tree {
-private:
+ private:
     struct Node {
         char value;
         std::vector<Node*> lower_level_nodes;
-        Node(char val) : value(val) {}
+        explicit Node(char val) : value(val) {}
     };
     Node* root;
     std::vector<std::vector<char>> permutations;
@@ -32,8 +32,9 @@ private:
         }
         perm.pop_back();
     }
-public:
-    Tree(const std::vector<char>& numbers) {
+
+ public:
+    explicit Tree(const std::vector<char>& numbers) {
         root = new Node('*');
         createTree(numbers, root);
         GenPerm(root, {});
