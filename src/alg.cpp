@@ -13,7 +13,7 @@ int factorial(int n) {
 
 std::vector<char> getPerm(const Tree& tree, int n) {
     std::vector<char> result = {};
-    if (n < 0 || tree.GetSize() < n)
+    if (n < 0 || factorial(tree.GetSize()) < n)
       return {};
     result = tree.GetPerm(n-1);
     result.erase(result.begin());
